@@ -9,8 +9,8 @@ class List extends Component {
       <ul>
         {character.map(char => {
           return (
-            <li>
-              <Card name={char.name} image={char.image} house={char.house} />
+            <li key={char.id}>
+              <Card id={char.id} name={char.name} image={char.image} house={char.house} />
             </li>
           )
         })}

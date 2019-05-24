@@ -18,16 +18,21 @@ class App extends Component {
   getCharacters () {
     fetch(URL)
       .then(res => res.json())
-      .then(char =>
-        
+      .then(char => {
+        const newCharacter = char.map((item, index) => {
+          return {...item, id: `char-${index+1}`};
+        });
+
         this.setState({
-          character: char,
-          isLoading: false
+          character: newCharacter,
+          isLoading: false, 
         })
-      )
+      });
   }
 
   render () {
+    console.log(this.state.character);
+    
     if (this.state.isLoading) {
       return <p>Loading...</p>
     }

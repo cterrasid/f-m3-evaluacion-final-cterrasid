@@ -13,6 +13,7 @@ class App extends Component {
     }
 
     this.getCharacters()
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   getCharacters () {
@@ -20,28 +21,28 @@ class App extends Component {
       .then(res => res.json())
       .then(char => {
         const newCharacter = char.map((item, index) => {
-          return {...item, id: `char-${index+1}`};
-        });
+          return { ...item, id: `char-${index + 1}` }
+        })
 
         this.setState({
           character: newCharacter,
-          isLoading: false, 
+          isLoading: false
         })
-      });
+      })
+  }
+
+  handleInputChange(event){
+    const inputValue = event.target.value;
+    console.log('input', inputValue);
+    
   }
 
   render () {
-    console.log(this.state.character);
-    
     if (this.state.isLoading) {
       return <p>Loading...</p>
     }
-        
-    return (
-      <div>Holi soy App
-        <Homepage character={this.state.character} />
-      </div>
-    )
+
+    return <Homepage character={this.state.character} />
   }
 }
 

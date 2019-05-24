@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Card from '../Card'
+import React, { Component } from 'react';
+import Card from '../Card';
 
 class List extends Component {
   render () {
@@ -19,4 +19,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default List;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './styles.scss'
 import Homepage from '../Homepage'
-
+import './styles.scss'
 const URL = 'http://hp-api.herokuapp.com/api/characters'
 
 class App extends Component {
@@ -20,6 +19,7 @@ class App extends Component {
     fetch(URL)
       .then(res => res.json())
       .then(char =>
+        
         this.setState({
           character: char,
           isLoading: false
@@ -31,8 +31,12 @@ class App extends Component {
     if (this.state.isLoading) {
       return <p>Loading...</p>
     }
-
-    return <Homepage character={this.state.character} />
+        
+    return (
+      <div>Holi soy App
+        <Homepage character={this.state.character} />
+      </div>
+    )
   }
 }
 

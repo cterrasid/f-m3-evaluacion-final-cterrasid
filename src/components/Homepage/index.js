@@ -11,7 +11,7 @@ class Homepage extends Component {
           Soy un main de Homepage
           <label id='search'>Holi soy un input</label>
           <input name='search' />
-          <List name={character.name} image={character.image} house={character.house} />
+          <List character={character} />
         </main>
         <footer>Soy un footer de Homepage</footer>
       </Fragment>

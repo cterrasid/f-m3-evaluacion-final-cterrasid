@@ -5,15 +5,17 @@ class List extends Component {
     const { character } = this.props
 
     return (
-      <ul>
-        {character.map(char => (
-          <li>
-            <h2>{char.name}</h2>
-            <img src={char.image} alt={char.name} />
-            <p>{char.house}</p>
-          </li>
-        ))}
-      </ul>
+        <ul>
+            {character.map(char => {
+              return (
+                <li>
+                  <h2>{char.name}</h2>
+                  <img src={char.image} alt={char.name} />
+                  <p>{char.house}</p>
+                </li>
+              )
+            })}
+          </ul>
     )
   }
 }

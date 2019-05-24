@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import Card from '../Card';
+import React, { Component, Fragment } from 'react'
+import Card from '../Card'
 
 class List extends Component {
   render () {
-    const { character } = this.props
+    const { character } = this.props;
 
     return (
-      <ul>
-        {character.map(char => {
-          return (
-            <li key={char.id}>
-              <Card id={char.id} name={char.name} image={char.image} house={char.house} />
-            </li>
-          )
-        })}
-      </ul>
+      <Fragment>
+        <ul className='character__list'>
+          {character.map(char => {
+            return (
+              <li key={char.id} className='character'>
+                <Card id={char.id} name={char.name} image={char.image} house={char.house} />
+              </li>
+            )
+          })}
+        </ul>
+      </Fragment>
     )
   }
 }
 
-export default List;
+export default List

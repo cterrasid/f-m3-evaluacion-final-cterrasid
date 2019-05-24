@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+//import PropTypes from 'prop-types';
 import List from '../List';
 import Filters from '../Filters';
 
@@ -18,4 +19,9 @@ class Homepage extends Component {
   }
 }
 
+// Homepage.PropTypes = {
+//   filterName: PropTypes.func,
+//   value: PropTypes.string,
+//   character: PropTypes.arrayOf(PropTypes.object),
+// }
 export default Homepage

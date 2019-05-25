@@ -1,15 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react'
+import './styles.scss'
 
 class Card extends Component {
   render () {
+    const { name, image, house } = this.props
     return (
-      <Fragment>
-        <h2>{this.props.name}</h2>
-        <img src={this.props.image} alt={this.props.name} />
-        <p>{this.props.house}</p>
-      </Fragment>
+      <div className='character__card-container'>
+        <h2 className='character__name'>{name}</h2>
+        <img className='character__picture' src={image} alt={name} />
+        <p className='character__house'>{house}</p>
+      </div>
     )
   }
 }
 
-export default Card;
+export default Card

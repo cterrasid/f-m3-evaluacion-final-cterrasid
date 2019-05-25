@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { fetchCharacters } from '../../services/characterService'
 import { Route, Switch } from 'react-router-dom'
 import Homepage from '../Homepage'
+import Card from '../Card'
 import './styles.scss'
 
 class App extends Component {
@@ -43,14 +44,18 @@ class App extends Component {
   // }
 
   render () {
-    if (this.state.isLoading) {
+    const { characterList, isLoading } = this.state
+    if (isLoading) {
       return <p>Loading...</p>
     }
-    console.log(this.state.characterList)
 
     return (
       <Switch>
-        <Route exact path='/' render={() => <Homepage character={this.state.characterList} />} />
+        <Route exact path='/' render={() => <Homepage character={characterList} />} />
+        <Route
+          path='/card/:characterId'
+          render={routerProps => <Card match={routerProps.match} character={characterList} />}
+        />
       </Switch>
     )
   }

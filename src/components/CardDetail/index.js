@@ -24,8 +24,8 @@ class CardDetail extends Component {
 }
 
 CardDetail.propTypes = {
-  match: PropTypes.objectOf(PropTypes.string).isRequired,
-  character: PropTypes.string.isRequired,
+  match: PropTypes.object.isRequired,
+  character: PropTypes.array.isRequired,
 };
 
 export default CardDetail

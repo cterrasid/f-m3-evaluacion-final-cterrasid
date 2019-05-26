@@ -1,14 +1,18 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
+// import PropTypes from 'prop-types'
 
-class Filters extends Component {
-  render () {
-    return (
-      <Fragment>
-        <label id='search'>Holi soy un input</label>
-        <input name='search' onChange={this.props.handleInputChange}/>
-      </Fragment>
-    )
-  }
+const Filters = props => {
+  const { onChangeName, nameValue } = props
+  console.log('FILTERS', props);
+  
+  return (
+    <form>
+      <label id='filter-name'>Holi soy un input</label>
+      <input type='text' name='filter-name' onChange={onChangeName} value={nameValue} placeholder='Ex: Harry Potter'/>
+    </form>
+  )
 }
-
+Filters.propTypes = {
+  //onChangeName: PropTypes.func.isRequired
+}
 export default Filters

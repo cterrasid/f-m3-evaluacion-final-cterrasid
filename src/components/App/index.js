@@ -12,37 +12,43 @@ class App extends Component {
     this.state = {
       characterList: [],
       isLoading: true,
-      queryName: '',   
+      queryName: ''
     }
     this.handleNameFilter = this.handleNameFilter.bind(this)
+    this.getCardDetails = this.getCardDetails.bind(this)
   }
   componentDidMount () {
     this.getCharacters()
   }
-  
+
   getCharacters () {
     fetchCharacters().then(data => {
       const newCharacterList = data.map((item, index) => {
-        return { ...item, id: index+1}
+        return { ...item, id: index + 1 }
       })
-      
+
       this.setState({
         characterList: newCharacterList,
         isLoading: false
       })
     })
   }
-  
+
   handleNameFilter (e) {
     const inputNameValue = e.currentTarget.value
-    
+
     this.setState({
-      queryName: inputNameValue,
+      queryName: inputNameValue
     })
   }
-  
+
+  getCardDetails(id){
+    const characterList = this.state.characterList;
+    return characterList.find(item => item.id === parseInt(id)); 
+  }
+
   render () {
-    const { characterList, isLoading, queryName} = this.state
+    const { characterList, isLoading, queryName } = this.state
 
     if (isLoading) {
       return <p className='loading'>Loading...</p>
@@ -53,16 +59,21 @@ class App extends Component {
         <Route
           exact
           path='/'
-          render={() => 
-          <Homepage 
-          onChangeName={this.handleNameFilter} 
-          queryName={queryName} 
-          character={characterList} 
-          loading={isLoading} />}
+          render={() => (
+            <Homepage
+              onChangeName={this.handleNameFilter}
+              queryName={queryName}
+              character={characterList}
+              loading={isLoading}
+            />
+          )}
         />
-        <Route
-          path='/:id'
-          render={routerProps => <CardDetail match={routerProps.match} character={characterList} />}
+        <Route 
+          path='/card/:id' 
+          render={routerProps => 
+            <CardDetail 
+              detail={this.getCardDetails(routerProps.match.params.id)}
+            />} 
         />
       </Switch>
     )

@@ -5,10 +5,10 @@ import './styles.scss'
 
 const Card = props => {
 
-    const { id, name, image, house } = props
+    const { id, name, image, house } = props    
 
     return (
-      <Link to={`/${id}`}>
+      <Link to={`/card/${id}`}>
         <article className='character__card-container'>
           <h2 className='character__name'>{name}</h2>
           <img className='character__picture' src={image} alt={name} />

@@ -12,44 +12,38 @@ class App extends Component {
     this.state = {
       characterList: [],
       isLoading: true,
-      filters: {
-        nameValue: ''
-      }
+      queryName: '',   
     }
     this.handleNameFilter = this.handleNameFilter.bind(this)
   }
-
   componentDidMount () {
     this.getCharacters()
   }
-
+  
   getCharacters () {
     fetchCharacters().then(data => {
       const newCharacterList = data.map((item, index) => {
-        return { ...item, id: index }
+        return { ...item, id: index+1}
       })
-
+      
       this.setState({
         characterList: newCharacterList,
         isLoading: false
       })
     })
   }
-
+  
   handleNameFilter (e) {
-    this.setState(state =>{
-      return {
-        ...state,
-        filters:{
-          nameValue: e.target.value
-        }
-      }
+    const inputNameValue = e.currentTarget.value
+    
+    this.setState({
+      queryName: inputNameValue,
     })
   }
   
   render () {
-    const { characterList, isLoading, nameValue} = this.state
-    console.log('APP', this.state);
+    const { characterList, isLoading, queryName} = this.state
+
     if (isLoading) {
       return <p className='loading'>Loading...</p>
     }
@@ -59,10 +53,15 @@ class App extends Component {
         <Route
           exact
           path='/'
-          render={() => <Homepage onChangeName={this.handleNameFilter} value={nameValue} character={characterList} loading={isLoading} />}
+          render={() => 
+          <Homepage 
+          onChangeName={this.handleNameFilter} 
+          queryName={queryName} 
+          character={characterList} 
+          loading={isLoading} />}
         />
         <Route
-          path='/card/:id'
+          path='/:id'
           render={routerProps => <CardDetail match={routerProps.match} character={characterList} />}
         />
       </Switch>

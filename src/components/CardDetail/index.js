@@ -1,31 +1,27 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-class CardDetail extends Component {
-  render () {
-    const { match, character } = this.props
-    // const characterId = match.params
-    console.log('====================================')
-    console.log(character, match)
-    console.log('====================================')
-    const item = character[match.params]
-    console.log(item)
+const CardDetail = props => {
+  const { match, character } = props
+  // const characterId = match.params
+  const item = character[match.params]
 
-    return (
-      <div>
-        {item ? <h2>{item.name}</h2> : <h2>No hay datos</h2>}
-
-        <p>el seleccionado es el</p>
-        <Link to='/'>Volver</Link>
+  return (
+    <Fragment>
+      <div className='character__card-detail'>
+        <h2 className='character__name'>{item.name}</h2>
+        <img className='character__picture' src={item.image} alt={item.name} />
+        <p className='character__house'>{item.house}</p>
       </div>
-    )
-  }
+      <Link to='/'>Volver</Link>
+    </Fragment>
+  )
 }
 
 CardDetail.propTypes = {
   match: PropTypes.object.isRequired,
-  character: PropTypes.array.isRequired,
-};
+  character: PropTypes.array.isRequired
+}
 
 export default CardDetail

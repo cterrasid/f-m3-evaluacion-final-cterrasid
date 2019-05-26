@@ -4,8 +4,7 @@ import List from '../List'
 import Filters from '../Filters'
 
 const Homepage = props => {
-  const { nameValue, handleNameFilter, character, loading } = props
-  console.log('HOMEPAGE', props);
+  const { queryName, onChangeName, character, loading } = props
   
   return (
     <div>
@@ -14,8 +13,14 @@ const Homepage = props => {
         <p className='loading'>Loading...</p>
       ) : (
         <main>
-          <Filters onChangeName={handleNameFilter} value={nameValue} />
-          <List character={character} />
+          <Filters 
+            queryName={queryName}
+            onChangeName={onChangeName} 
+          />
+          <List 
+            character={character}
+            queryName={queryName} 
+          />
         </main>
       )}
       <footer>Soy un footer de Homepage</footer>
@@ -24,8 +29,10 @@ const Homepage = props => {
 }
 
 Homepage.propTypes = {
-  //handleNameFilter: PropTypes.func.isRequired,
+  onChangeName: PropTypes.func.isRequired,
+  queryName: PropTypes.string.isRequired,
   character: PropTypes.arrayOf(PropTypes.object).isRequired,
   loading: PropTypes.bool.isRequired,
 }
+
 export default Homepage

@@ -5,14 +5,16 @@ import Card from '../Card'
 
 const List = props => {
 
-    const { character } = props
+    const { character, queryName } = props
 
     return (
       <ul className='character__list'>
-        {character.map(char => {
+        {character
+        .filter(item => item.name.includes(queryName))
+        .map(item => {
           return (
-            <li key={char.id} className='character'>
-              <Card id={char.id} name={char.name} image={char.image} house={char.house} />
+            <li key={item.id} className='character'>
+              <Card id={item.id} name={item.name} image={item.image} house={item.house} />
             </li>
           )
         })}
@@ -22,6 +24,7 @@ const List = props => {
 
 List.propTypes = {
   character: PropTypes.arrayOf(PropTypes.object).isRequired,
+  queryName: PropTypes.string.isRequired,
 };
 
 export default List

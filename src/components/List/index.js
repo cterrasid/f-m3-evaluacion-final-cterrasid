@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types';
 import './styles.scss'
 import Card from '../Card'
 
-class List extends Component {
-  render () {
-    const { character } = this.props
+const List = props => {
+
+    const { character } = props
 
     return (
       <ul className='character__list'>
@@ -17,7 +18,10 @@ class List extends Component {
         })}
       </ul>
     )
-  }
-}
+  };
+
+List.propTypes = {
+  character: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default List

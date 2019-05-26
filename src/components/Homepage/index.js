@@ -1,27 +1,27 @@
-import React, { Component, Fragment } from 'react';
-//import PropTypes from 'prop-types';
-import List from '../List';
-import Filters from '../Filters';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import List from '../List'
+import Filters from '../Filters'
 
 class Homepage extends Component {
   render () {
-    const { character } = this.props
+    const { character, loading } = this.props
     return (
-      <Fragment>
+      <div>
         <header>Soy un header de HomePage</header>
-        <main>
-          <Filters filterName={this.props.handleInputChange} value={this.props.value}/>
-          <List character={character} />
-        </main>
+        {loading ? (<p className='loading'>Loading...</p>) : 
+        (<main>
+            <Filters filterName={character.handleInputChange} value={character.value} />
+            <List character={character} />
+        </main>)}
         <footer>Soy un footer de Homepage</footer>
-      </Fragment>
+      </div>
     )
   }
 }
 
-// Homepage.PropTypes = {
-//   filterName: PropTypes.func,
-//   value: PropTypes.string,
-//   character: PropTypes.arrayOf(PropTypes.object),
-// }
+Homepage.propTypes = {
+  character: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.string.isRequired
+}
 export default Homepage

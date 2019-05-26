@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { fetchCharacters } from '../../services/characterService'
 import { Route, Switch } from 'react-router-dom'
+import { fetchCharacters } from '../../services/characterService'
 import Homepage from '../Homepage'
-import Card from '../Card'
+import CardDetail from '../CardDetail'
 import './styles.scss'
 
 class App extends Component {
@@ -13,8 +13,6 @@ class App extends Component {
       characterList: [],
       isLoading: true
     }
-
-    // this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   componentDidMount () {
@@ -24,7 +22,7 @@ class App extends Component {
   getCharacters () {
     fetchCharacters().then(data => {
       const newCharacterList = data.map((item, index) => {
-        return { ...item, id: `${index}${index + 1}` }
+        return { ...item, id: index}
       })
 
       this.setState({
@@ -34,28 +32,16 @@ class App extends Component {
     })
   }
 
-  // handleInputChange (event) {
-  //   const inputValue = event.target.value
-  //   this.setState({
-  //     value: inputValue
-  //   })
-
-  // console.log('input', inputValue)
-  // }
-
   render () {
     const { characterList, isLoading } = this.state
     if (isLoading) {
-      return <p>Loading...</p>
+      return <p className='loading'>Loading...</p>
     }
 
     return (
       <Switch>
-        <Route exact path='/' render={() => <Homepage character={characterList} />} />
-        <Route
-          path='/card/:characterId'
-          render={routerProps => <Card match={routerProps.match} character={characterList} />}
-        />
+        <Route exact path='/' render={() => <Homepage character={characterList} loading={isLoading} />} />
+        <Route path='/card/:id' render={routerProps => <CardDetail match={routerProps.match} character={characterList}/>} />
       </Switch>
     )
   }

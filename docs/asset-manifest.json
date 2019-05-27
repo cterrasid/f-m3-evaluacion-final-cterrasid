@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "./static/css/main.f1f9ac88.chunk.css",
+    "main.js": "./static/js/main.e156d2b5.chunk.js",
+    "main.js.map": "./static/js/main.e156d2b5.chunk.js.map",
+    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
+    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
+    "static/js/2.d523a628.chunk.js": "./static/js/2.d523a628.chunk.js",
+    "static/js/2.d523a628.chunk.js.map": "./static/js/2.d523a628.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.6fea59da7a5519a6d1698d6de31a557d.js": "./precache-manifest.6fea59da7a5519a6d1698d6de31a557d.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.f1f9ac88.chunk.css.map": "./static/css/main.f1f9ac88.chunk.css.map",
+    "static/media/Gryffindor.png": "./static/media/Gryffindor.ccab2c1d.png",
+    "static/media/Hufflepuff.png": "./static/media/Hufflepuff.12d81696.png",
+    "static/media/Ravenclaw.png": "./static/media/Ravenclaw.3ab23809.png",
+    "static/media/Slytherin.png": "./static/media/Slytherin.9791ef71.png"
+  }
+}

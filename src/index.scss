@@ -1,13 +1,12 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=18817);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+//scss
+@import 'scss/mixins';
+@import 'scss/basis';
+// @import 'core/variables';
 
-* {
-  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=18817);
-}
+//components
+@import 'components/App';
+@import 'components/Card';
+@import 'components/CardDetail';
+@import 'components/Filters';
+@import 'components/Homepage';
+@import 'components/List';

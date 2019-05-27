@@ -4,22 +4,28 @@ import { Link } from 'react-router-dom'
 
 const CardDetail = props => {
   const { detail } = props
-console.log('====================================');
-console.log(props);
-console.log('====================================');  
+
   return (
     <Fragment>
       <div className='character__card-detail'>
         <h2 className='character__name'>{detail.name}</h2>
         <img className='character__picture' src={detail.image} alt={detail.name} />
         <ul>
-          <li className='character__house'>House: {detail.house}</li>
-          <li className='character__yob'>Year of Birth: {detail.yearOfBirth}</li>
-          <li className='character__patronus'>Patronus: {detail.patronus}</li>
-          <li className='character__status'>Status: {detail.alive}</li>
+          <li className='character__house'>
+            <p>House: {detail.house === '' ? 'Unknown' : detail.house}</p>
+          </li>
+          <li className='character__yob'>
+            <p>Year of Birth: {detail.yearOfBirth === '' ? 'Unknown' : detail.yearOfBirth}</p>
+          </li>
+          <li className='character__patronus'>
+            <p>Patronus: {detail.patronus === '' ? 'Unknown' : detail.patronus}</p>
+          </li>
+          <li className='character__status'>
+            <p>Status: {detail.alive === true ? 'Alive' : 'Dead'}</p>
+          </li>
         </ul>
       </div>
-      <Link to='/'>Go Back</Link>
+      <Link to='/' className='link'>Go Back</Link>
     </Fragment>
   )
 }

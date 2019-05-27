@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import List from '../List'
 import Filters from '../Filters'
+import './styles.scss'
 
 const Homepage = props => {
   const { queryName, onChangeName, character, loading } = props

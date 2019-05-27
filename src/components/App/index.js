@@ -42,9 +42,9 @@ class App extends Component {
     })
   }
 
-  getCardDetails(id){
-    const characterList = this.state.characterList;
-    return characterList.find(item => item.id === parseInt(id)); 
+  getCardDetails (id) {
+    const characterList = this.state.characterList
+    return characterList.find(item => item.id === parseInt(id))
   }
 
   render () {
@@ -55,27 +55,26 @@ class App extends Component {
     }
 
     return (
-      <Switch>
-        <Route
-          exact
-          path='/'
-          render={() => (
-            <Homepage
-              onChangeName={this.handleNameFilter}
-              queryName={queryName}
-              character={characterList}
-              loading={isLoading}
-            />
-          )}
-        />
-        <Route 
-          path='/card/:id' 
-          render={routerProps => 
-            <CardDetail 
-              detail={this.getCardDetails(routerProps.match.params.id)}
-            />} 
-        />
-      </Switch>
+      <div className='App'>
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <Homepage
+                onChangeName={this.handleNameFilter}
+                queryName={queryName}
+                character={characterList}
+                loading={isLoading}
+              />
+            )}
+          />
+          <Route
+            path='/card/:id'
+            render={routerProps => <CardDetail detail={this.getCardDetails(routerProps.match.params.id)} />}
+          />
+        </Switch>
+      </div>
     )
   }
 }

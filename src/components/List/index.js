@@ -5,7 +5,7 @@ import Card from '../Card'
 
 const List = props => {
 
-    const { character, queryName } = props
+    const { character, queryName, getHouseImage } = props
 
     return (
       <ul className='character__list'>
@@ -13,8 +13,8 @@ const List = props => {
         .filter(item => item.name.includes(queryName))
         .map(item => {
           return (
-            <li key={item.id} className='character'>
-              <Card id={item.id} name={item.name} image={item.image} house={item.house} />
+            <li key={item.id}>
+              <Card id={item.id} name={item.name} image={item.image} house={item.house} getHouseImage={getHouseImage} status={item.alive}/>
             </li>
           )
         })}

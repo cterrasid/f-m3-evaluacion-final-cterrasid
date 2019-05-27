@@ -5,14 +5,15 @@ import './styles.scss'
 
 const Card = props => {
 
-    const { id, name, image, house } = props    
+    const { id, name, image, status, house, getHouseImage } = props    
 
     return (
       <Link to={`/card/${id}`}>
         <article className='character__card-container'>
           <h2 className='character__name'>{name}</h2>
           <img className='character__picture' src={image} alt={name} />
-          <p className='character__house'>{house}</p>
+          <img className='character__house' src={getHouseImage (house)} alt={house}/>
+          <i className={status ? '' : 'fas fa-skull isdead'} />
         </article>
       </Link>
     )
@@ -23,6 +24,7 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   house: PropTypes.string.isRequired,
+  getHouseImage: PropTypes.func.isRequired,
 };
 
 export default Card

@@ -3,7 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 import { fetchCharacters } from '../../services/characterService'
 import Homepage from '../Homepage'
 import CardDetail from '../CardDetail'
+import Ravenclaw from '../../images/Ravenclaw.png'
+import Slytherin from '../../images/Slytherin.png'
+import Hufflepuff from '../../images/Hufflepuff.png'
+import Gryffindor from '../../images/Gryffindor.png'
 import './styles.scss'
+
 
 class App extends Component {
   constructor (props) {
@@ -16,7 +21,9 @@ class App extends Component {
     }
     this.handleNameFilter = this.handleNameFilter.bind(this)
     this.getCardDetails = this.getCardDetails.bind(this)
+    this.getHouseImage = this.getHouseImage.bind(this)
   }
+
   componentDidMount () {
     this.getCharacters()
   }
@@ -47,6 +54,18 @@ class App extends Component {
     return characterList.find(item => item.id === parseInt(id))
   }
 
+  getHouseImage(characterList){
+    if (characterList.house === 'Gryffindor') {
+      return Gryffindor
+    } else if (characterList.house === 'Hufflepuff') {
+      return Hufflepuff
+    } else if (characterList.house === 'Slytherin') {
+      return Slytherin
+    } else if (characterList.house === 'Ravenclaw') {
+      return Ravenclaw
+    }
+  }
+
   render () {
     const { characterList, isLoading, queryName } = this.state
 
@@ -63,6 +82,7 @@ class App extends Component {
             render={() => (
               <Homepage
                 onChangeName={this.handleNameFilter}
+                getHouseImage={this.getHouseImage}
                 queryName={queryName}
                 character={characterList}
                 loading={isLoading}
@@ -71,7 +91,12 @@ class App extends Component {
           />
           <Route
             path='/card/:id'
-            render={routerProps => <CardDetail detail={this.getCardDetails(routerProps.match.params.id)} />}
+            render={routerProps => 
+              <CardDetail 
+                detail={this.getCardDetails(routerProps.match.params.id)} 
+                getHouseImage={this.getHouseImage}
+              />
+            }
           />
         </Switch>
       </div>

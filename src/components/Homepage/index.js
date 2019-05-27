@@ -5,22 +5,23 @@ import Filters from '../Filters'
 import './styles.scss'
 
 const Homepage = props => {
-  const { queryName, onChangeName, character, loading } = props
+  const { queryName, onChangeName, getHouseImage, character, loading } = props
   
   return (
     <div>
-      <header>Soy un header de HomePage</header>
+      <header>Character Finder</header>
       {loading ? (
         <p className='loading'>Loading...</p>
       ) : (
         <main>
           <Filters 
             queryName={queryName}
-            onChangeName={onChangeName} 
-          />
+            onChangeName={onChangeName}
+            />
           <List 
             character={character}
             queryName={queryName} 
+            getHouseImage={getHouseImage} 
           />
         </main>
       )}

@@ -1,12 +1,11 @@
 //scss
-@import 'scss/mixins';
 @import 'scss/basis';
-// @import 'core/variables';
+@import 'scss/colors';
 
 //components
-@import 'components/App';
-@import 'components/Card';
-@import 'components/CardDetail';
-@import 'components/Filters';
-@import 'components/Homepage';
-@import 'components/List';
+@import 'components/App/styles.scss';
+@import 'components/Card/styles.scss';
+@import 'components/CardDetail/styles.scss';
+@import 'components/Filters/styles.scss';
+@import 'components/Homepage/styles.scss';
+@import 'components/List/styles.scss';

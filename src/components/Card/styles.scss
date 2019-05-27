@@ -1,10 +1,30 @@
-.character__card-container{
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 25px 2px #afafaf;
+.character{
+
+    &__card-container{
+        position: relative;
+        background-color: #4a1ca0;
+        border-radius: 5px;
+        box-shadow: 0 2px 25px 2px #afafaf;
+        height: 260px;
+        width: 200px;
+        margin: 20px;
+        overflow: hidden;
+        color: #ffffff;
+    }
+
+    &__name{
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        font-size: 18px;
+    }
+
+    &__picture{
+        height: 260px;
+        width: 200px;
+    }
 }
 
-.character__picture{
-    height: 200px;
+.isdead{
+    position: absolute;
+    top: 30px;
+    right: 10px;
 }

@@ -5,9 +5,10 @@ const Filters = props => {
   const { queryName, onChangeName } = props
   
   return (
-    <form>
-      <label id='filter-name'>Holi soy un input</label>
-      <input 
+    <form className='filter-name'>
+      <label id='filter-name'>Find by <strong>name</strong>: </label>
+      <input
+      className='input' 
       type='text' 
       name='filter-name' 
       onChange={onChangeName} 

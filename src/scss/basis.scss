@@ -5,14 +5,12 @@
     list-style: none;
     text-align: center;
     text-decoration: none;
-    overflow-x: hidden;
     cursor: url(http://www.rw-designer.com/cursor-extern.php?id=18817), auto !important;
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
     height: 100vh;
-    width: 100vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

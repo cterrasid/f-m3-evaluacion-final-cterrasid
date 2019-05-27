@@ -9,12 +9,12 @@ const Card = props => {
 
     return (
       <Link to={`/card/${id}`}>
-        <article className='character__card-container'>
+        <div className='character__card-container'>
           <h2 className='character__name'>{name}</h2>
           <img className='character__picture' src={image} alt={name} />
           <img className='character__house-image' src={getHouseImage (house)} alt={house}/>
           <i className={status ? '' : 'fas fa-skull isdead'} />
-        </article>
+        </div>
       </Link>
     )
 }

@@ -25,7 +25,7 @@ const Homepage = props => {
           />
         </main>
       )}
-      <footer>Soy un footer de Homepage</footer>
+      <footer>By <strong>Clarette Terrasi Díaz </strong>  2019</footer>
     </div>
   )
 }

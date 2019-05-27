@@ -21,10 +21,17 @@
         height: 260px;
         width: 200px;
     }
+
+    &__house-image{
+        position: absolute;
+        top: 10%;
+        right: 3%;
+        height: 50px;
+    }
 }
 
 .isdead{
     position: absolute;
-    top: 30px;
-    right: 10px;
+    top: 85px;
+    right: 18px;
 }

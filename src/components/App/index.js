@@ -54,21 +54,20 @@ class App extends Component {
     return characterList.find(item => item.id === parseInt(id))
   }
 
-  getHouseImage(characterList){
-    if (characterList.house === 'Gryffindor') {
+  getHouseImage(house){
+    if (house === 'Gryffindor') {
       return Gryffindor
-    } else if (characterList.house === 'Hufflepuff') {
+    } else if (house === 'Hufflepuff') {
       return Hufflepuff
-    } else if (characterList.house === 'Slytherin') {
+    } else if (house === 'Slytherin') {
       return Slytherin
-    } else if (characterList.house === 'Ravenclaw') {
+    } else if (house === 'Ravenclaw') {
       return Ravenclaw
     }
   }
 
   render () {
     const { characterList, isLoading, queryName } = this.state
-
     if (isLoading) {
       return <p className='loading'>Loading...</p>
     }

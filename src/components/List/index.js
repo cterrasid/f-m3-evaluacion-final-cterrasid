@@ -10,7 +10,7 @@ const List = props => {
     return (
       <ul className='character__list'>
         {character
-        .filter(item => item.name.includes(queryName))
+        .filter(item => item.name.toLowerCase().includes(queryName.toLowerCase()))
         .map(item => {
           return (
             <li key={item.id}>

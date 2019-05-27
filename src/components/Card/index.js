@@ -12,7 +12,7 @@ const Card = props => {
         <article className='character__card-container'>
           <h2 className='character__name'>{name}</h2>
           <img className='character__picture' src={image} alt={name} />
-          <img className='character__house' src={getHouseImage (house)} alt={house}/>
+          <img className='character__house-image' src={getHouseImage (house)} alt={house}/>
           <i className={status ? '' : 'fas fa-skull isdead'} />
         </article>
       </Link>

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const CardDetail = props => {
-  const { detail } = props
-
+  const { detail, getHouseImage } = props
+  const houseImage = detail.house
   return (
     <Fragment>
       <div className='character__card-detail'>
@@ -13,6 +13,7 @@ const CardDetail = props => {
         <ul>
           <li className='character__house'>
             <p>House: {detail.house === '' ? 'Unknown' : detail.house}</p>
+            {detail.house ? <img src={getHouseImage (houseImage)} alt={detail.house}/> : ''}
           </li>
           <li className='character__yob'>
             <p>Year of Birth: {detail.yearOfBirth === '' ? 'Unknown' : detail.yearOfBirth}</p>
